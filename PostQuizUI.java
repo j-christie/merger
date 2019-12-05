@@ -45,6 +45,8 @@ import javafx.stage.Stage;
 	        TextField Ans5 = new TextField("");
 	        Ans5.setPromptText("Insert Answer 5");
 	        
+	        Button goBackButton = new Button("Back");
+	        
 	        TextField o1a = new TextField("");
 	        o1a.setPromptText("Insert Option a for 1");
 	       
@@ -145,6 +147,8 @@ import javafx.stage.Stage;
 	        
 	        r.getChildren().add(Status);
 	        
+	        root.getChildren().add(goBackButton);
+			goBackButton.setOnAction(goBack);
 	      
 	        VBox vBox = new VBox(button);
 	        r.getChildren().add(vBox);
@@ -208,7 +212,16 @@ import javafx.stage.Stage;
 	            
 	            o.setQuizValue(qd);
 	            
+	            Status.setText("Quiz Posted");
+	            
 	        });
+	        
+	        EventHandler<ActionEvent> goBack = new EventHandler<ActionEvent>() { 
+	            public void handle(ActionEvent e) 
+	            { 
+	                Driver.goBack();
+	            } 
+	        }; 
 	        
 	        return scene;
 	    }

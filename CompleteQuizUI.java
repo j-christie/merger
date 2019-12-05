@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 public class CompleteQuizUI{
 	
 	public QuizData QuizD;
+	Button goBackButton = new Button("Back");
 	 RadioButton q1a = new RadioButton("1a");
      RadioButton q1b = new RadioButton("1b");
      RadioButton q1c = new RadioButton("1c");
@@ -157,6 +158,10 @@ public class CompleteQuizUI{
         r.getChildren().add(Grade);
         Grade.setVisible(false);
         r.getChildren().add(sub);
+        
+        root.getChildren().add(goBackButton);
+		goBackButton.setOnAction(goBack);
+        
         sub.setVisible(true);
         q1a.setVisible(false);
         q1b.setVisible(false);
@@ -462,7 +467,12 @@ public class CompleteQuizUI{
         	}
         );
         
-        
+        EventHandler<ActionEvent> goBack = new EventHandler<ActionEvent>() { 
+            public void handle(ActionEvent e) 
+            { 
+                Driver.goBack();
+            } 
+        }; 
         
         return scene;
 	
