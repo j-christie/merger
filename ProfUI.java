@@ -19,6 +19,7 @@ public class ProfUI {
 	
     ArrayList<Button> buttonList = new ArrayList<Button>();
     ArrayList<Course> courseList = new ArrayList<Course>();
+    Button award = new Button("Post Award");
     
     public Scene getScene() {
     	getCourses();
@@ -33,11 +34,18 @@ public class ProfUI {
 		for(int i=0;i<buttonList.size();i++) {
 			buttonList.get(i).setOnAction(selectCourse);
 		}
+		award.setOnAction(this::postAward);
+		root.getChildren().add(award);
 		Scene s = new Scene(root);
 		
 		
 		return s;
 	}
+    
+    public void postAward(ActionEvent e) {
+    	PostAwardsUI uI = new PostAwardsUI();
+    	Driver.changeScene(uI.getScene(), 500, 500);	
+    }
     
     public void getCourses() {
     	courseList = control.getProfCourses();

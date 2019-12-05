@@ -2,14 +2,15 @@ import javafx.scene.Scene;
 import javafx.scene.layout.TilePane;
 import javafx.scene.text.*;
 
+
 public class ViewAwardsUI {
-	ViewAwardsControl controller = new ViewAwardsControl();
+	static ViewAwardsControl controller = new ViewAwardsControl();
 	
 
 	
 
 	
-    public Scene getScene() {
+    public static Scene getScene() {
     	
 
     	Text title= new Text("Awards Recieved:");

@@ -1,12 +1,8 @@
 import java.util.Stack;
 
 import javafx.application.Application;
-import javafx.collections.ObservableList;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 
 public class Driver extends Application {
    private static Stack<Scene> backList = new Stack<Scene>();
@@ -30,8 +26,8 @@ public class Driver extends Application {
 
 
 
-   @Override public void start(Stage stage) {
-		  this.stage = stage;
+   @Override public void start(Stage stageish) {
+		  stage = stageish;
 		  Scene firstScene = loginUI.getScene();
 		  backList.push(firstScene);
 	      stage.setTitle("Sample Application");
