@@ -22,10 +22,8 @@ public class PostAwardsUI {
     	heading.setFont(new Font(20));
     	
     	Button submit = new Button("Submit");
-		submit.setOnAction(this::submit);
+		submit.setOnAction(this::handle);
     	
-    	Button back = new Button("Back");
-		submit.setOnAction(this::back);
 
     	boxTitle1.setFont(new Font(13));
     	
@@ -50,23 +48,13 @@ public class PostAwardsUI {
 		root.getChildren().add(textField3);
 		
 		root.getChildren().add(submit);
-		root.getChildren().add(back);
 		
 		Scene s = new Scene(root);
 		
 		
 		return s;
 	}
-    
-    
-    public void back(ActionEvent e) 
-    { 
-    	Driver.goBack();
-		
-    } 
-    
-    
-        public void submit(ActionEvent e) 
+        public void handle(ActionEvent e) 
         { 
         	boolean confirm = false;
 			try {
@@ -78,7 +66,6 @@ public class PostAwardsUI {
 				heading = new Text("Succes!");
 			else
 				heading = new Text("Failed - Student does not exist");
-			
 			
         } 
 }

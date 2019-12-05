@@ -38,17 +38,12 @@ public class CourseSelectionUI {
 		}
 		root.getChildren().add(awardsButton);
 		root.getChildren().add(profileButton);
-		awardsButton.setOnAction(this::awardEvent);
       	profileButton.setOnAction(profileEvent);
 		Scene s = new Scene(root);
 
 
 		return s;
 	}
-    
-    public void awardEvent(ActionEvent e) {
-    	Driver.changeScene(ViewAwardsUI.getScene(), 500, 500);
-    }
 
     public void getCourses() {
     	courseList = control.getStudentCourses();

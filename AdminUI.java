@@ -16,15 +16,15 @@ public class AdminUI {
     Button createAccount = new Button("Create user account");
     Button addStudentToCourse = new Button("Add Student To Course");
 
-
+	ArrayList<Button> buttonList = new ArrayList<Button>();
 
 
     public Scene getScene() {
-
+		buttonList.add(addCourse);
 		addCourse.setOnAction(addEvent);
-
+		buttonList.add(createAccount);
 		createAccount.setOnAction(createEvent);
-
+		buttonList.add(addStudentToCourse);
 		addStudentToCourse.setOnAction(addStudentEvent);
 
     	TilePane root = new TilePane();
@@ -51,8 +51,7 @@ public class AdminUI {
 	EventHandler<ActionEvent> addEvent = new EventHandler<ActionEvent>() {
 		public void handle(ActionEvent e)
 		{
-			AddCourseUI uI = new AddCourseUI();
-			Driver.changeScene(uI.getScene(), 500, 500);
+			System.out.println("Add Course");
 		}
 	};
 

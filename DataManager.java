@@ -484,41 +484,19 @@ public class DataManager {
 	        return rs;
 		}
 	  
-	  public boolean addAward(String studID, String name, String desc) {//JustinC
-	        boolean pass = true;
-		  	try {
-				Statement st = connection.createStatement();
-
-				//create query string
-				String sqlQuery = "insert into Award (AwardName, AwardDescription, StudID) values('" + name + "','" + desc + "','" + studID +"');";
-
-				st.executeQuery(sqlQuery);
-				
-				}
-			catch (SQLException e) {
-				System.err.println(e);
-				pass = false;
-			}
-	        return pass;
-		}
-	  
-	  
-	  public boolean addCourse(String courseID, String name, String desc, String prof) {//JustinC
-		  boolean pass = true;
+	  public void addAward(String studID, String name, String desc) {//JustinC
 	        try {
 				Statement st = connection.createStatement();
 
 				//create query string
-				String sqlQuery = "insert into Course (CourseName, CourseDescription, CourseNumber, ProfID ) values('" + name + "','" + desc + "','" + courseID + "','" + prof +"');";
+				String sqlQuery = "insert into Award values(" + name + "," + desc + "," + studID +");";
 
 				st.executeQuery(sqlQuery);
 				
 				}
 			catch (SQLException e) {
 				System.err.println(e);
-				pass = false;
 			}
-	        return pass;
 		}
 
 	//QuizMethods
@@ -668,6 +646,7 @@ public class DataManager {
 		try {
 			Statement st = connection.createStatement();
 			String sqlQuery = "delete from Notification where NotificationID = "+ NotificationID +";";
+			ResultSet rs = st.executeQuery(sqlQuery);
 		}catch(SQLException e) {
 			return false;
 		}
@@ -678,6 +657,7 @@ public class DataManager {
 		try {
 			Statement st = connection.createStatement();
 			String sqlQuery = "update Notification set NotificationDescription = "+Description +" where NotificationID = "+ NotificationID +";";
+			ResultSet rs = st.executeQuery(sqlQuery);
 		}catch(SQLException e) {
 			return false;
 		}

@@ -5,8 +5,8 @@ import java.util.*;
 public class AwardObject {
 	public ArrayList<String> names = new ArrayList<String>();
 	public ArrayList<String> descriptions = new ArrayList<String>();
-	private DataManager dM = Driver.getDM();
-	private LoginControl lC = Driver.getLoginControl();
+	private DataManager dM = new DataManager();
+	private LoginControl lC = new LoginControl();
 	
 	public AwardObject() {
 		
